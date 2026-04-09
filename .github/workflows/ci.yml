@@ -22,11 +22,7 @@ jobs:
           GITEA__server__HTTP_PORT: 3000
           GITEA__security__SECRET_KEY: "test-secret-key-for-ci"
           GITEA__security__INTERNAL_TOKEN: "test-internal-token"
-        options: >-
-          --health-cmd "curl -f http://localhost:3000/api/v1/version || exit 1"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 12
+        options: --health-cmd "wget -qO- http://localhost:3000/api/v1/version || exit 1" --health-interval 10s --health-timeout 5s --health-retries 20
 
     steps:
       - name: Checkout repository
