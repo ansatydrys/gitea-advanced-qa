@@ -50,7 +50,7 @@ jobs:
 
       - name: Setup Gitea with admin account
         run: |
-          curl -s -X POST http://localhost:8080/ \
+          curl -s --max-time 10 -X POST http://localhost:8080/ \
             -H "Content-Type: application/x-www-form-urlencoded" \
             --data-urlencode "db_type=sqlite3" \
             --data-urlencode "db_path=/data/gitea/gitea.db" \
@@ -66,10 +66,15 @@ jobs:
             --data-urlencode "admin_name=ansat" \
             --data-urlencode "admin_email=ansat@gitea.local" \
             --data-urlencode "admin_passwd=Ansat12345" \
-            --data-urlencode "admin_confirm_passwd=Ansat12345"
-          sleep 3
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -u ansat:Ansat12345 http://localhost:8080/api/v1/user)
-          echo "Admin auth check: $STATUS"
+            --data-urlencode "admin_confirm_passwd=Ansat12345" || true
+          echo "Waiting for Gitea to restart after setup..."
+          sleep 10
+          for i in $(seq 1 10); do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" -u ansat:Ansat12345 http://localhost:8080/api/v1/user)
+            echo "Auth check $i: $STATUS"
+            [ "$STATUS" = "200" ] && break
+            sleep 3
+          done
           [ "$STATUS" = "200" ] || exit 1
 
       - name: Run E2E Tests (Playwright)
