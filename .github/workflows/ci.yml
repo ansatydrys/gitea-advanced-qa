@@ -23,7 +23,7 @@ jobs:
             -e GITEA__server__HTTP_PORT=3000 \
             -e GITEA__security__SECRET_KEY=test-secret-key \
             -e GITEA__security__INTERNAL_TOKEN=test-internal-token \
-            gitea/gitea:1.22
+            gitea/gitea:1.25.5
           for i in $(seq 1 40); do
             curl -sf http://localhost:8080/api/v1/version && echo "Gitea ready" && break
             echo "Waiting... $i/40"
