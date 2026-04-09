@@ -20,12 +20,8 @@ jobs:
           GITEA__database__DB_TYPE: sqlite3
           GITEA__server__DOMAIN: localhost
           GITEA__server__HTTP_PORT: 3000
-          GITEA__security__INSTALL_LOCK: "true"
           GITEA__security__SECRET_KEY: "test-secret-key-for-ci"
           GITEA__security__INTERNAL_TOKEN: "test-internal-token"
-          GITEA_ADMIN_USER: ansat
-          GITEA_ADMIN_PASSWORD: Ansat12345
-          GITEA_ADMIN_EMAIL: ansat@gitea.local
         options: >-
           --health-cmd "curl -f http://localhost:3000/api/v1/version || exit 1"
           --health-interval 10s
@@ -48,17 +44,37 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Wait for Gitea to be fully ready
+      - name: Wait for Gitea to be ready
         run: |
-          echo "Waiting for Gitea..."
           for i in $(seq 1 30); do
-            if curl -sf http://localhost:8080/api/v1/version; then
-              echo "Gitea is ready"
-              break
-            fi
-            echo "Attempt $i/30 — waiting 3s..."
+            curl -sf http://localhost:8080/api/v1/version && echo "Gitea ready" && break
+            echo "Waiting... $i/30"
             sleep 3
           done
+
+      - name: Setup Gitea with admin account
+        run: |
+          curl -s -X POST http://localhost:8080/ \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            --data-urlencode "db_type=sqlite3" \
+            --data-urlencode "db_path=/data/gitea/gitea.db" \
+            --data-urlencode "app_name=Gitea" \
+            --data-urlencode "repo_root_path=/data/gitea/repositories" \
+            --data-urlencode "run_user=git" \
+            --data-urlencode "domain=localhost" \
+            --data-urlencode "ssh_port=22" \
+            --data-urlencode "http_port=3000" \
+            --data-urlencode "app_url=http://localhost:3000/" \
+            --data-urlencode "log_root_path=/data/gitea/log" \
+            --data-urlencode "no_reply_address=noreply.localhost" \
+            --data-urlencode "admin_name=ansat" \
+            --data-urlencode "admin_email=ansat@gitea.local" \
+            --data-urlencode "admin_passwd=Ansat12345" \
+            --data-urlencode "admin_confirm_passwd=Ansat12345"
+          sleep 3
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -u ansat:Ansat12345 http://localhost:8080/api/v1/user)
+          echo "Admin auth check: $STATUS"
+          [ "$STATUS" = "200" ] || exit 1
 
       - name: Run E2E Tests (Playwright)
         run: npx playwright test --reporter=list,html
