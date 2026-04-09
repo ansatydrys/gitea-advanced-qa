@@ -1,0 +1,168 @@
+name: QA Pipeline — Gitea Assignment 2
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e-tests:
+    name: Playwright E2E Tests
+    runs-on: ubuntu-latest
+
+    services:
+      gitea:
+        image: gitea/gitea:1.21
+        ports:
+          - 8080:3000
+        env:
+          GITEA__database__DB_TYPE: sqlite3
+          GITEA__server__DOMAIN: localhost
+          GITEA__server__HTTP_PORT: 3000
+          GITEA__security__INSTALL_LOCK: "true"
+          GITEA__security__SECRET_KEY: "test-secret-key-for-ci"
+          GITEA__security__INTERNAL_TOKEN: "test-internal-token"
+        options: >-
+          --health-cmd "curl -f http://localhost:3000/api/v1/version || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 12
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Wait for Gitea to be fully ready
+        run: |
+          echo "Waiting for Gitea..."
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8080/api/v1/version; then
+              echo "Gitea is ready"
+              break
+            fi
+            echo "Attempt $i/30 — waiting 3s..."
+            sleep 3
+          done
+
+      - name: Create admin account via Gitea CLI
+        run: |
+          docker exec $(docker ps -q --filter "ancestor=gitea/gitea:1.21") \
+            gitea admin user create \
+            --username ansat \
+            --password Ansat12345 \
+            --email ansat@gitea.local \
+            --admin \
+            --must-change-password=false || echo "User may already exist"
+
+      - name: Verify admin login works
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -u ansat:Ansat12345 \
+            http://localhost:8080/api/v1/user)
+          echo "Auth check HTTP status: $STATUS"
+          [ "$STATUS" = "200" ] || exit 1
+
+      - name: Run E2E Tests (Playwright)
+        run: npx playwright test --reporter=list,html
+        env:
+          CI: true
+
+      - name: Upload Playwright HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
+
+      - name: Upload test videos/traces (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: test-results/
+          retention-days: 7
+
+  api-tests:
+    name: Newman API Tests
+    runs-on: ubuntu-latest
+    needs: e2e-tests
+
+    services:
+      gitea:
+        image: gitea/gitea:1.21
+        ports:
+          - 8080:3000
+        env:
+          GITEA__database__DB_TYPE: sqlite3
+          GITEA__server__DOMAIN: localhost
+          GITEA__server__HTTP_PORT: 3000
+          GITEA__security__INSTALL_LOCK: "true"
+          GITEA__security__SECRET_KEY: "test-secret-key-for-ci"
+          GITEA__security__INTERNAL_TOKEN: "test-internal-token"
+        options: >-
+          --health-cmd "curl -f http://localhost:3000/api/v1/version || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 12
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: Wait for Gitea
+        run: |
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8080/api/v1/version && break
+            sleep 3
+          done
+
+      - name: Create admin account
+        run: |
+          docker exec $(docker ps -q --filter "ancestor=gitea/gitea:1.21") \
+            gitea admin user create \
+            --username ansat \
+            --password Ansat12345 \
+            --email ansat@gitea.local \
+            --admin \
+            --must-change-password=false || echo "User may already exist"
+
+      - name: Run Newman API Tests
+        run: |
+          mkdir -p reports
+          newman run tests/api/gitea_api.postman_collection.json \
+            -e tests/api/environment.json \
+            --reporters cli,json,htmlextra \
+            --reporter-json-export reports/api-results.json \
+            --reporter-htmlextra-export reports/newman-report.html \
+            --delay-request 200
+
+      - name: Upload Newman report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-report
+          path: reports/
+          retention-days: 14

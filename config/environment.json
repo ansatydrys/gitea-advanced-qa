@@ -1,0 +1,12 @@
+{
+  "id": "gitea-env-assignment2",
+  "name": "Gitea Local — Assignment 2",
+  "values": [
+    { "key": "baseUrl",  "value": "http://localhost:8080", "enabled": true },
+    { "key": "username", "value": "ansat",                  "enabled": true },
+    { "key": "password", "value": "Ansat12345",             "enabled": true },
+    { "key": "testRepo", "value": "",                        "enabled": true },
+    { "key": "issueNumber", "value": "",                     "enabled": true }
+  ],
+  "_postman_variable_scope": "environment"
+}

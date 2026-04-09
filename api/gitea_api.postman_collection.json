@@ -1,0 +1,347 @@
+{
+  "info": {
+    "name": "Gitea API Test Suite — Assignment 2",
+    "_postman_id": "gitea-qa-assignment2-2026",
+    "description": "REST API tests for Gitea 1.25.5. Covers /api/v1 endpoints for repos, users, issues, orgs, and admin.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{username}}", "type": "string" },
+      { "key": "password", "value": "{{password}}", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "Health & Version",
+      "item": [
+        {
+          "name": "API01 - GET /api/v1/version returns 200",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/version"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Has version field', () => { const b = pm.response.json(); pm.expect(b.version).to.be.a('string'); });"
+          ]}}]
+        },
+        {
+          "name": "API02 - GET /api/swagger returns Swagger UI",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "url": "{{baseUrl}}/api/swagger"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200 or 301', () => { pm.expect([200, 301, 302]).to.include(pm.response.code); });"
+          ]}}]
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "API03 - GET /api/v1/user returns current user",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/user"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Login matches', () => { const b = pm.response.json(); pm.expect(b.login).to.equal(pm.environment.get('username')); });"
+          ]}}]
+        },
+        {
+          "name": "API04 - GET /api/v1/user without auth returns 401",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/user"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 401', () => pm.response.to.have.status(401));"
+          ]}}]
+        }
+      ]
+    },
+    {
+      "name": "Repositories",
+      "item": [
+        {
+          "name": "API05 - POST /user/repos creates a repo",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/user/repos",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"newman-test-repo\",\"private\":false,\"auto_init\":false}"
+            }
+          },
+          "event": [
+            { "listen": "prerequest", "script": { "exec": ["pm.environment.set('testRepo', 'newman-test-repo');"] }},
+            { "listen": "test", "script": { "exec": [
+              "pm.test('Status 201 or 409', () => { pm.expect([201, 409]).to.include(pm.response.code); });",
+              "if (pm.response.code === 201) { pm.test('Repo name matches', () => { pm.expect(pm.response.json().name).to.equal('newman-test-repo'); }); }"
+            ]}}
+          ]
+        },
+        {
+          "name": "API06 - GET /repos/{owner}/{repo} returns repo info",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/newman-test-repo"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Repo name correct', () => pm.expect(pm.response.json().name).to.equal('newman-test-repo'));"
+          ]}}]
+        },
+        {
+          "name": "API07 - GET /repos/{owner}/{repo} 404 for missing repo",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/this-does-not-exist-xyz"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 404', () => pm.response.to.have.status(404));"
+          ]}}]
+        },
+        {
+          "name": "API08 - GET /repos/search finds repos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/repos/search?limit=5",
+              "query": [{ "key": "limit", "value": "5" }]
+            }
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Has data array', () => pm.expect(pm.response.json().data).to.be.an('array'));"
+          ]}}]
+        },
+        {
+          "name": "API09 - PATCH /repos/{owner}/{repo} updates description",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/newman-test-repo",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"description\":\"Updated by Newman\"}" }
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Description updated', () => pm.expect(pm.response.json().description).to.equal('Updated by Newman'));"
+          ]}}]
+        },
+        {
+          "name": "API10 - DELETE /repos/{owner}/{repo} deletes the repo",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/newman-test-repo"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 204', () => pm.response.to.have.status(204));"
+          ]}}]
+        }
+      ]
+    },
+    {
+      "name": "Issues",
+      "item": [
+        {
+          "name": "API11 - Setup: create repo for issue tests",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/user/repos",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"name\":\"newman-issue-repo\",\"auto_init\":false}" }
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Repo created or exists', () => { pm.expect([201,409]).to.include(pm.response.code); });"
+          ]}}]
+        },
+        {
+          "name": "API12 - POST /repos/{owner}/{repo}/issues creates issue",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/newman-issue-repo/issues",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"title\":\"Newman Test Issue\",\"body\":\"Created by automated API test\"}" }
+          },
+          "event": [
+            { "listen": "test", "script": { "exec": [
+              "pm.test('Status 201', () => pm.response.to.have.status(201));",
+              "pm.test('Title matches', () => pm.expect(pm.response.json().title).to.equal('Newman Test Issue'));",
+              "pm.environment.set('issueNumber', pm.response.json().number);"
+            ]}}
+          ]
+        },
+        {
+          "name": "API13 - GET issues list returns array",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/newman-issue-repo/issues"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Is array', () => pm.expect(pm.response.json()).to.be.an('array'));",
+            "pm.test('At least one issue', () => pm.expect(pm.response.json().length).to.be.above(0));"
+          ]}}]
+        },
+        {
+          "name": "API14 - PATCH closes the issue",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/newman-issue-repo/issues/{{issueNumber}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"state\":\"closed\"}" }
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 201', () => pm.response.to.have.status(201));",
+            "pm.test('State is closed', () => pm.expect(pm.response.json().state).to.equal('closed'));"
+          ]}}]
+        },
+        {
+          "name": "API15 - Teardown: delete issue test repo",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/repos/{{username}}/newman-issue-repo"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 204', () => pm.response.to.have.status(204));"
+          ]}}]
+        }
+      ]
+    },
+    {
+      "name": "Users & Admin",
+      "item": [
+        {
+          "name": "API16 - GET /users/{username} returns user info",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/users/{{username}}"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Login correct', () => pm.expect(pm.response.json().login).to.equal(pm.environment.get('username')));"
+          ]}}]
+        },
+        {
+          "name": "API17 - GET /users/{username}/repos lists user repos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/users/{{username}}/repos"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Is array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+          ]}}]
+        },
+        {
+          "name": "API18 - GET /admin/users lists all users",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/admin/users?limit=10"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Is array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+          ]}}]
+        },
+        {
+          "name": "API19 - POST /admin/users creates user, DELETE removes it",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/admin/users",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"username\":\"newman-tmpuser\",\"email\":\"newman-tmpuser@test.local\",\"password\":\"TempPass123!\",\"login_name\":\"newman-tmpuser\",\"source_id\":0,\"must_change_password\":false}" }
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Created or already exists', () => { pm.expect([201,422]).to.include(pm.response.code); });"
+          ]}}]
+        },
+        {
+          "name": "API20 - DELETE /admin/users/{username} removes test user",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/admin/users/newman-tmpuser"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 204 or 404', () => { pm.expect([204,404]).to.include(pm.response.code); });"
+          ]}}]
+        }
+      ]
+    },
+    {
+      "name": "Organisations",
+      "item": [
+        {
+          "name": "API21 - POST /orgs creates organisation",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/orgs",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"username\":\"newman-test-org\",\"visibility\":\"public\"}" }
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 201 or 422', () => { pm.expect([201,422]).to.include(pm.response.code); });"
+          ]}}]
+        },
+        {
+          "name": "API22 - GET /orgs/{org} returns org info",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/orgs/newman-test-org"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));"
+          ]}}]
+        },
+        {
+          "name": "API23 - DELETE /orgs/{org} removes organisation",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/orgs/newman-test-org"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 204 or 404', () => { pm.expect([204,404]).to.include(pm.response.code); });"
+          ]}}]
+        }
+      ]
+    },
+    {
+      "name": "Performance Baseline",
+      "item": [
+        {
+          "name": "API24 - /api/v1/repos responds within 500ms",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/repos/search?limit=10"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Response time < 500ms', () => pm.expect(pm.response.responseTime).to.be.below(500));"
+          ]}}]
+        },
+        {
+          "name": "API25 - /api/v1/version responds within 200ms",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/version"
+          },
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test('Status 200', () => pm.response.to.have.status(200));",
+            "pm.test('Response time < 200ms', () => pm.expect(pm.response.responseTime).to.be.below(200));"
+          ]}}]
+        }
+      ]
+    }
+  ]
+}
