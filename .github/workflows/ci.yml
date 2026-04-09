@@ -23,6 +23,9 @@ jobs:
           GITEA__security__INSTALL_LOCK: "true"
           GITEA__security__SECRET_KEY: "test-secret-key-for-ci"
           GITEA__security__INTERNAL_TOKEN: "test-internal-token"
+          GITEA_ADMIN_USER: ansat
+          GITEA_ADMIN_PASSWORD: Ansat12345
+          GITEA_ADMIN_EMAIL: ansat@gitea.local
         options: >-
           --health-cmd "curl -f http://localhost:3000/api/v1/version || exit 1"
           --health-interval 10s
@@ -56,24 +59,6 @@ jobs:
             echo "Attempt $i/30 — waiting 3s..."
             sleep 3
           done
-
-      - name: Create admin account via Gitea CLI
-        run: |
-          docker exec $(docker ps -q --filter "ancestor=gitea/gitea:1.22") \
-            gitea admin user create \
-            --username ansat \
-            --password Ansat12345 \
-            --email ansat@gitea.local \
-            --admin \
-            --must-change-password=false || echo "User may already exist"
-
-      - name: Verify admin login works
-        run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            -u ansat:Ansat12345 \
-            http://localhost:8080/api/v1/user)
-          echo "Auth check HTTP status: $STATUS"
-          [ "$STATUS" = "200" ] || exit 1
 
       - name: Run E2E Tests (Playwright)
         run: npx playwright test --reporter=list,html
