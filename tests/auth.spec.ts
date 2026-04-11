@@ -86,3 +86,14 @@ test('TC10 - Direct access to admin route without auth redirects to login', asyn
   await page.goto('/-/admin/users');
   await expect(page).toHaveURL(/\/user\/login/);
 });
+
+// ─── TC46: Invalid Token (Unit) ───────────────────────────────────────────────
+
+test('TC46 - Invalid Bearer token on /api/v1/user returns 401', async ({ request }) => {
+  // Unit-level: single endpoint in isolation, no session, no UI.
+  // A forged or expired token must be rejected — distinct from TC22 which tests no-auth at all.
+  const response = await request.get('http://localhost:8080/api/v1/user', {
+    headers: { Authorization: 'Bearer totally-invalid-token-abc123xyz987' },
+  });
+  expect(response.status()).toBe(401);
+});

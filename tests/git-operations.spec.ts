@@ -112,3 +112,53 @@ test('TC45 - Commit history is accessible via API', async ({ page }) => {
   expect(Array.isArray(data)).toBeTruthy();
   expect(data.length).toBeGreaterThan(0);
 });
+
+// ─── TC50: Duplicate Branch + Stale SHA (E2E) ────────────────────────────────
+
+test('TC50 - Duplicate branch creation and stale-SHA file update both return conflict errors', async ({ page }) => {
+  // E2E-level: full user flow — init repo → create branch → collision → create file → stale SHA update.
+  // TC43 covers only the success path. This covers concurrency risk (branch collision)
+  // and data integrity (stale SHA), both of which must return structured errors, not 500 panics.
+  await loginAsAdmin(page);
+  const name = uniqueName('git-conflict');
+
+  await apiRequest(page, 'POST', '/user/repos', { name, auto_init: true, default_branch: 'main' });
+
+  // First branch creation must succeed
+  const { status: s1 } = await apiRequest(page, 'POST', `/repos/${ADMIN_USER}/${name}/branches`, {
+    new_branch_name: 'feature-collision',
+    old_branch_name: 'main',
+  });
+  expect(s1).toBe(201);
+
+  // Duplicate branch creation must fail with 409 Conflict, not 500
+  const { status: s2 } = await apiRequest(page, 'POST', `/repos/${ADMIN_USER}/${name}/branches`, {
+    new_branch_name: 'feature-collision',
+    old_branch_name: 'main',
+  });
+  expect(s2).not.toBe(201);
+  expect(s2).not.toBe(500);
+  expect(s2).toBe(409);
+
+  // Create a file and capture its real SHA
+  const { data: fileData } = await apiRequest(page, 'POST', `/repos/${ADMIN_USER}/${name}/contents/data.txt`, {
+    message: 'add data',
+    content: b64('initial content\n'),
+    branch: 'main',
+  });
+  expect(fileData.content?.sha).toBeTruthy();
+
+  // Attempt to update the file with a completely fabricated (stale/wrong) SHA
+  const { status: s3 } = await apiRequest(page, 'PUT', `/repos/${ADMIN_USER}/${name}/contents/data.txt`, {
+    message: 'update with wrong sha',
+    content: b64('updated content\n'),
+    sha: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    branch: 'main',
+  });
+  expect(s3).not.toBe(200);
+  expect(s3).not.toBe(500);
+  expect([409, 422]).toContain(s3);
+
+  // Cleanup
+  await apiRequest(page, 'DELETE', `/repos/${ADMIN_USER}/${name}`);
+});

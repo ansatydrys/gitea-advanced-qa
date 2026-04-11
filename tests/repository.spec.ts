@@ -7,7 +7,7 @@
 
 import { test, expect } from '@playwright/test';
 import {
-  loginAsAdmin, ADMIN_USER,
+  loginAsAdmin, ADMIN_USER, BASE_URL,
   AuthPage, RepoPage, uniqueName, apiRequest
 } from './helpers';
 
@@ -95,4 +95,43 @@ test('TC17 - Repo deletion via API removes it from listing', async ({ page }) =>
   expect(del.status).toBe(204);
   const check = await apiRequest(page, 'GET', `/repos/${ADMIN_USER}/${name}`);
   expect(check.status).toBe(404);
+});
+
+// ─── TC48: Cross-User Private Repo Access (Integration) ──────────────────────
+
+test('TC48 - Authenticated non-owner cannot access private repo via API', async ({ page }) => {
+  // Integration-level: Auth module (who you are) × Repository AC module (what you can see).
+  // TC14 covers unauthenticated access; this covers the real-world case of a logged-in
+  // but unauthorised user. Gitea intentionally returns 404 (not 403) to avoid leaking repo existence.
+  await loginAsAdmin(page);
+  const repoName = uniqueName('priv-cross');
+  const otherUser = uniqueName('nonowner');
+
+  await apiRequest(page, 'POST', '/user/repos', { name: repoName, private: true, auto_init: false });
+  await apiRequest(page, 'POST', '/admin/users', {
+    username: otherUser,
+    email: `${otherUser}@test.local`,
+    password: 'TestPass123!',
+    login_name: otherUser,
+    source_id: 0,
+    must_change_password: false,
+  });
+
+  // Fetch the private repo using the non-owner's credentials (inline — one-off, no helper needed)
+  const { status } = await page.evaluate(
+    async ({ base, owner, repo, user }: { base: string; owner: string; repo: string; user: string }) => {
+      const token = btoa(`${user}:TestPass123!`);
+      const res = await fetch(`${base}/api/v1/repos/${owner}/${repo}`, {
+        headers: { Authorization: `Basic ${token}` },
+      });
+      return { status: res.status };
+    },
+    { base: BASE_URL, owner: ADMIN_USER, repo: repoName, user: otherUser }
+  );
+
+  expect(status).toBe(404);
+
+  // Cleanup
+  await apiRequest(page, 'DELETE', `/repos/${ADMIN_USER}/${repoName}`);
+  await apiRequest(page, 'DELETE', `/admin/users/${otherUser}`);
 });

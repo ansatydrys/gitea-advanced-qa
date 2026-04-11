@@ -57,3 +57,32 @@ test('TC22 - Admin API endpoint /admin/users requires authentication', async ({ 
   const response = await request.get('http://localhost:8080/api/v1/admin/users');
   expect(response.status()).toBe(401);
 });
+
+// ─── TC49: Duplicate User Creation Conflict (Integration) ────────────────────
+
+test('TC49 - Admin API returns conflict when creating duplicate username', async ({ page }) => {
+  // Integration-level: Admin endpoint × User validation layer.
+  // TC20/TC21 are happy-path only. This covers the failure branch: same username submitted twice.
+  // Must return 422 Unprocessable Entity — not 201 (silently accepted) or 500 (panic).
+  await loginAsAdmin(page);
+  const username = uniqueName('dup-user');
+  const userPayload = {
+    username,
+    email: `${username}@test.local`,
+    password: 'TestPass123!',
+    login_name: username,
+    source_id: 0,
+    must_change_password: false,
+  };
+
+  const first = await apiRequest(page, 'POST', '/admin/users', userPayload);
+  expect(first.status).toBe(201);
+
+  const second = await apiRequest(page, 'POST', '/admin/users', userPayload);
+  expect(second.status).not.toBe(201);
+  expect(second.status).not.toBe(500);
+  expect(second.status).toBe(422);
+
+  // Cleanup
+  await apiRequest(page, 'DELETE', `/admin/users/${username}`);
+});

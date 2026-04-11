@@ -101,3 +101,18 @@ test('TC34 - Content-Type header is set on API responses', async ({ page }) => {
   const ct = response!.headers()['content-type'] ?? '';
   expect(ct).toContain('application/json');
 });
+
+// ─── TC47: Path-Traversal in Repo Name (Unit) ─────────────────────────────────
+
+test('TC47 - Repository name with path-traversal characters is rejected by API', async ({ page }) => {
+  // Unit-level: single API call, no UI.
+  // Path-traversal names like "../evil" must not succeed (not 201) and must not panic (not 500).
+  await loginAsAdmin(page);
+  const { status } = await apiRequest(page, 'POST', '/user/repos', {
+    name: '../evil-traversal',
+    auto_init: false,
+  });
+  expect(status).not.toBe(201);
+  expect(status).not.toBe(500);
+  expect([400, 422]).toContain(status);
+});
