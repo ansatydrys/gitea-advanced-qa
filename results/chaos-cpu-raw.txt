@@ -1,0 +1,110 @@
+time="2026-04-23T21:22:52+05:00" level=warning msg="\"cli\" level configuration overrode scenarios configuration entirely"
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: tests/performance/load-test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 50s max duration (incl. graceful stop):
+              * default: 5 looping VUs for 20s (gracefulStop: 30s)
+
+
+running (01.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [   5% ] 5 VUs  01.0s/20s
+
+running (02.0s), 5/5 VUs, 0 complete and 0 interrupted iterations
+default   [  10% ] 5 VUs  02.0s/20s
+
+running (03.0s), 5/5 VUs, 5 complete and 0 interrupted iterations
+default   [  15% ] 5 VUs  03.0s/20s
+
+running (04.0s), 5/5 VUs, 6 complete and 0 interrupted iterations
+default   [  20% ] 5 VUs  04.0s/20s
+
+running (05.0s), 5/5 VUs, 11 complete and 0 interrupted iterations
+default   [  25% ] 5 VUs  05.0s/20s
+
+running (06.0s), 5/5 VUs, 13 complete and 0 interrupted iterations
+default   [  30% ] 5 VUs  06.0s/20s
+
+running (07.0s), 5/5 VUs, 13 complete and 0 interrupted iterations
+default   [  35% ] 5 VUs  07.0s/20s
+
+running (08.0s), 5/5 VUs, 18 complete and 0 interrupted iterations
+default   [  40% ] 5 VUs  08.0s/20s
+
+running (09.0s), 5/5 VUs, 19 complete and 0 interrupted iterations
+default   [  45% ] 5 VUs  09.0s/20s
+
+running (10.0s), 5/5 VUs, 24 complete and 0 interrupted iterations
+default   [  50% ] 5 VUs  10.0s/20s
+
+running (11.0s), 5/5 VUs, 25 complete and 0 interrupted iterations
+default   [  55% ] 5 VUs  11.0s/20s
+
+running (12.0s), 5/5 VUs, 28 complete and 0 interrupted iterations
+default   [  60% ] 5 VUs  12.0s/20s
+
+running (13.0s), 5/5 VUs, 31 complete and 0 interrupted iterations
+default   [  65% ] 5 VUs  13.0s/20s
+
+running (14.0s), 5/5 VUs, 31 complete and 0 interrupted iterations
+default   [  70% ] 5 VUs  14.0s/20s
+
+running (15.0s), 5/5 VUs, 34 complete and 0 interrupted iterations
+default   [  75% ] 5 VUs  15.0s/20s
+
+running (16.0s), 5/5 VUs, 38 complete and 0 interrupted iterations
+default   [  80% ] 5 VUs  16.0s/20s
+
+running (17.0s), 5/5 VUs, 38 complete and 0 interrupted iterations
+default   [  85% ] 5 VUs  17.0s/20s
+
+running (18.0s), 5/5 VUs, 43 complete and 0 interrupted iterations
+default   [  90% ] 5 VUs  18.0s/20s
+
+running (19.0s), 5/5 VUs, 45 complete and 0 interrupted iterations
+default   [  95% ] 5 VUs  19.0s/20s
+
+running (20.0s), 5/5 VUs, 48 complete and 0 interrupted iterations
+default   [ 100% ] 5 VUs  20.0s/20s
+
+running (21.0s), 5/5 VUs, 48 complete and 0 interrupted iterations
+default ↓ [ 100% ] 5 VUs  20s
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 53      2.447288/s
+    checks_succeeded...: 100.00% 53 out of 53
+    checks_failed......: 0.00%   0 out of 53
+
+    ✓ status < 400
+
+    HTTP
+    http_req_duration..............: avg=1.54s min=303ms    med=1.59s max=2.79s p(90)=2.19s p(95)=2.34s
+      { expected_response:true }...: avg=1.54s min=303ms    med=1.59s max=2.79s p(90)=2.19s p(95)=2.34s
+    http_req_failed................: 0.00%  0 out of 53
+    http_reqs......................: 53     2.447288/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.04s min=804.14ms med=2.09s max=3.29s p(90)=2.69s p(95)=2.84s
+    iterations.....................: 53     2.447288/s
+    vus............................: 5      min=5       max=5
+    vus_max........................: 5      min=5       max=5
+
+    NETWORK
+    data_received..................: 468 kB 22 kB/s
+    data_sent......................: 9.6 kB 445 B/s
+
+
+
+
+running (21.7s), 0/5 VUs, 53 complete and 0 interrupted iterations
+default ✓ [ 100% ] 5 VUs  20s

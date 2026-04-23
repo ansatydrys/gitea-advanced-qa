@@ -1,0 +1,1195 @@
+
+Running 8 tests using 1 worker
+
+[1A[2K[1/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:13:5 › TC28 - XSS payload in issue title is escaped, not executed
+[1A[2K[2/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:34:5 › TC29 - XSS img payload in issue body is sanitised
+[1A[2K[3/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:52:5 › TC30 - SQL injection in login field does not return 500
+[1A[2K[4/8] (retries) [chromium] › tests/mutation/input-validation.mutant.spec.ts:52:5 › TC30 - SQL injection in login field does not return 500 (retry #1)
+[1A[2K  1) [chromium] › tests/mutation/input-validation.mutant.spec.ts:52:5 › TC30 - SQL injection in login field does not return 500 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('body')
+    Timeout: 5000ms
+    [32m- Expected substring  -   1[39m
+    [31m+ Received string     + 219[39m
+
+    [32m- 500[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Explore[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Help[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 					Register[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 				Sign In[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Username or password is incorrect.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Sign In[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Username or Email Address[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Password[39m
+    [31m+ 					Forgot password?[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Remember This Device[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 						Sign In[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 	Could not read your security key.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Your browser does not currently support WebAuthn.[39m
+    [31m+ 		An unknown error occurred. Please retry.[39m
+    [31m+ 		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[39m
+    [31m+ 		The server could not process your request.[39m
+    [31m+ 		The security key is not permitted for this request. Please make sure that the key is not already registered.[39m
+    [31m+ 		You must set a name for this key.[39m
+    [31m+ 		Timeout reached before your key could be read. Please reload this page and retry.[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ 			Sign in with a passkey[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Need an account?[39m
+    [31m+ 				Register now.[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Powered by Gitea[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Version:[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				1.25.5[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Page: 2ms[39m
+    [31m+ 			Template: 1ms[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			 English[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Bahasa Indonesia[39m
+    [31m+ 				Deutsch[39m
+    [31m+ 				English[39m
+    [31m+ 				Español[39m
+    [31m+ 				Français[39m
+    [31m+ 				Gaeilge[39m
+    [31m+ 				Italiano[39m
+    [31m+ 				Latviešu[39m
+    [31m+ 				Magyar nyelv[39m
+    [31m+ 				Nederlands[39m
+    [31m+ 				Polski[39m
+    [31m+ 				Português de Portugal[39m
+    [31m+ 				Português do Brasil[39m
+    [31m+ 				Suomi[39m
+    [31m+ 				Svenska[39m
+    [31m+ 				Türkçe[39m
+    [31m+ 				Čeština[39m
+    [31m+ 				Ελληνικά[39m
+    [31m+ 				Български[39m
+    [31m+ 				Русский[39m
+    [31m+ 				Українська[39m
+    [31m+ 				فارسی[39m
+    [31m+ 				മലയാളം[39m
+    [31m+ 				日本語[39m
+    [31m+ 				简体中文[39m
+    [31m+ 				繁體中文（台灣）[39m
+    [31m+ 				繁體中文（香港）[39m
+    [31m+ 				한국어[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 		Licenses[39m
+    [31m+ 		API[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('body')[22m
+    [2m    9 × locator resolved to <body hx-ext="morph" hx-swap="outerHTML" hx-push-url="false" hx-headers="{"x-csrf-token": "FGTv9rDxrngTBFVF07idPm-GRD46MTc3Njk2MTA5NTM4NjY1NjIxMw"}">…</body>[22m
+    [2m      - unexpected value "[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Explore[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			Help[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m					Register[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m				Sign In[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Username or password is incorrect.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Sign In[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				Username or Email Address[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Password[22m
+    [2m					Forgot password?[22m
+    [2m				[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Remember This Device[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m[22m
+    [2m[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m						Sign In[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	Could not read your security key.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Your browser does not currently support WebAuthn.[22m
+    [2m		An unknown error occurred. Please retry.[22m
+    [2m		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[22m
+    [2m		The server could not process your request.[22m
+    [2m		The security key is not permitted for this request. Please make sure that the key is not already registered.[22m
+    [2m		You must set a name for this key.[22m
+    [2m		Timeout reached before your key could be read. Please reload this page and retry.[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m			Sign in with a passkey[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				Need an account?[22m
+    [2m				Register now.[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Powered by Gitea[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Version:[22m
+    [2m			[22m
+    [2m				1.25.5[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Page: 2ms[22m
+    [2m			Template: 1ms[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			 English[22m
+    [2m			[22m
+    [2m				Bahasa Indonesia[22m
+    [2m				Deutsch[22m
+    [2m				English[22m
+    [2m				Español[22m
+    [2m				Français[22m
+    [2m				Gaeilge[22m
+    [2m				Italiano[22m
+    [2m				Latviešu[22m
+    [2m				Magyar nyelv[22m
+    [2m				Nederlands[22m
+    [2m				Polski[22m
+    [2m				Português de Portugal[22m
+    [2m				Português do Brasil[22m
+    [2m				Suomi[22m
+    [2m				Svenska[22m
+    [2m				Türkçe[22m
+    [2m				Čeština[22m
+    [2m				Ελληνικά[22m
+    [2m				Български[22m
+    [2m				Русский[22m
+    [2m				Українська[22m
+    [2m				فارسی[22m
+    [2m				മലയാളം[22m
+    [2m				日本語[22m
+    [2m				简体中文[22m
+    [2m				繁體中文（台灣）[22m
+    [2m				繁體中文（香港）[22m
+    [2m				한국어[22m
+    [2m				[22m
+    [2m		[22m
+    [2m		Licenses[22m
+    [2m		API[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m"[22m
+
+
+      56 |   await page.click('button.ui.primary.button');
+      57 |   // MUTATION-4: [Logical negation] — original: await expect(page.locator('body')).not.toContainText('500');
+    > 58 |   await expect(page.locator('body')).toContainText('500');
+         |                                      ^
+      59 |   await expect(page.locator('body')).not.toContainText('Internal Server Error');
+      60 | });
+      61 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:58:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('body')
+    Timeout: 5000ms
+    [32m- Expected substring  -   1[39m
+    [31m+ Received string     + 219[39m
+
+    [32m- 500[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Explore[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Help[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 					Register[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 				Sign In[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Username or password is incorrect.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Sign In[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Username or Email Address[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Password[39m
+    [31m+ 					Forgot password?[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Remember This Device[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 						Sign In[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 	Could not read your security key.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Your browser does not currently support WebAuthn.[39m
+    [31m+ 		An unknown error occurred. Please retry.[39m
+    [31m+ 		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[39m
+    [31m+ 		The server could not process your request.[39m
+    [31m+ 		The security key is not permitted for this request. Please make sure that the key is not already registered.[39m
+    [31m+ 		You must set a name for this key.[39m
+    [31m+ 		Timeout reached before your key could be read. Please reload this page and retry.[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ 			Sign in with a passkey[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Need an account?[39m
+    [31m+ 				Register now.[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Powered by Gitea[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Version:[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				1.25.5[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Page: 4ms[39m
+    [31m+ 			Template: 1ms[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			 English[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Bahasa Indonesia[39m
+    [31m+ 				Deutsch[39m
+    [31m+ 				English[39m
+    [31m+ 				Español[39m
+    [31m+ 				Français[39m
+    [31m+ 				Gaeilge[39m
+    [31m+ 				Italiano[39m
+    [31m+ 				Latviešu[39m
+    [31m+ 				Magyar nyelv[39m
+    [31m+ 				Nederlands[39m
+    [31m+ 				Polski[39m
+    [31m+ 				Português de Portugal[39m
+    [31m+ 				Português do Brasil[39m
+    [31m+ 				Suomi[39m
+    [31m+ 				Svenska[39m
+    [31m+ 				Türkçe[39m
+    [31m+ 				Čeština[39m
+    [31m+ 				Ελληνικά[39m
+    [31m+ 				Български[39m
+    [31m+ 				Русский[39m
+    [31m+ 				Українська[39m
+    [31m+ 				فارسی[39m
+    [31m+ 				മലയാളം[39m
+    [31m+ 				日本語[39m
+    [31m+ 				简体中文[39m
+    [31m+ 				繁體中文（台灣）[39m
+    [31m+ 				繁體中文（香港）[39m
+    [31m+ 				한국어[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 		Licenses[39m
+    [31m+ 		API[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('body')[22m
+    [2m    9 × locator resolved to <body hx-ext="morph" hx-swap="outerHTML" hx-push-url="false" hx-headers="{"x-csrf-token": "_Z9z8LEy5f3lVOI4X8uqdGWQHoA6MTc3Njk2MTEwMTY2ODA3NzE3NQ"}">…</body>[22m
+    [2m      - unexpected value "[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Explore[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			Help[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m					Register[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m				Sign In[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Username or password is incorrect.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Sign In[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				Username or Email Address[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Password[22m
+    [2m					Forgot password?[22m
+    [2m				[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Remember This Device[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m[22m
+    [2m[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m						Sign In[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	Could not read your security key.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Your browser does not currently support WebAuthn.[22m
+    [2m		An unknown error occurred. Please retry.[22m
+    [2m		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[22m
+    [2m		The server could not process your request.[22m
+    [2m		The security key is not permitted for this request. Please make sure that the key is not already registered.[22m
+    [2m		You must set a name for this key.[22m
+    [2m		Timeout reached before your key could be read. Please reload this page and retry.[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m			Sign in with a passkey[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				Need an account?[22m
+    [2m				Register now.[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Powered by Gitea[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Version:[22m
+    [2m			[22m
+    [2m				1.25.5[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Page: 4ms[22m
+    [2m			Template: 1ms[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			 English[22m
+    [2m			[22m
+    [2m				Bahasa Indonesia[22m
+    [2m				Deutsch[22m
+    [2m				English[22m
+    [2m				Español[22m
+    [2m				Français[22m
+    [2m				Gaeilge[22m
+    [2m				Italiano[22m
+    [2m				Latviešu[22m
+    [2m				Magyar nyelv[22m
+    [2m				Nederlands[22m
+    [2m				Polski[22m
+    [2m				Português de Portugal[22m
+    [2m				Português do Brasil[22m
+    [2m				Suomi[22m
+    [2m				Svenska[22m
+    [2m				Türkçe[22m
+    [2m				Čeština[22m
+    [2m				Ελληνικά[22m
+    [2m				Български[22m
+    [2m				Русский[22m
+    [2m				Українська[22m
+    [2m				فارسی[22m
+    [2m				മലയാളം[22m
+    [2m				日本語[22m
+    [2m				简体中文[22m
+    [2m				繁體中文（台灣）[22m
+    [2m				繁體中文（香港）[22m
+    [2m				한국어[22m
+    [2m				[22m
+    [2m		[22m
+    [2m		Licenses[22m
+    [2m		API[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m"[22m
+
+
+      56 |   await page.click('button.ui.primary.button');
+      57 |   // MUTATION-4: [Logical negation] — original: await expect(page.locator('body')).not.toContainText('500');
+    > 58 |   await expect(page.locator('body')).toContainText('500');
+         |                                      ^
+      59 |   await expect(page.locator('body')).not.toContainText('Internal Server Error');
+      60 | });
+      61 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:58:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-7dd3e-n-field-does-not-return-500-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[5/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:62:5 › TC31 - SQL injection in registration username is rejected gracefully
+[1A[2K[6/8] (retries) [chromium] › tests/mutation/input-validation.mutant.spec.ts:62:5 › TC31 - SQL injection in registration username is rejected gracefully (retry #1)
+[1A[2K  2) [chromium] › tests/mutation/input-validation.mutant.spec.ts:62:5 › TC31 - SQL injection in registration username is rejected gracefully 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('input[name="user_name"]')[22m
+
+
+      63 |   // MUTATION-5: [URL change] — original: await page.goto('/user/sign_up');
+      64 |   await page.goto('/user/register_form');
+    > 65 |   await page.fill('input[name="user_name"]', SQL_INJECT);
+         |              ^
+      66 |   await page.fill('input[name="email"]', 'sqli@test.local');
+      67 |   await page.fill('input[name="password"]', 'Password123!');
+      68 |   await page.fill('input[name="retype"]', 'Password123!');
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:65:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('input[name="user_name"]')[22m
+
+
+      63 |   // MUTATION-5: [URL change] — original: await page.goto('/user/sign_up');
+      64 |   await page.goto('/user/register_form');
+    > 65 |   await page.fill('input[name="user_name"]', SQL_INJECT);
+         |              ^
+      66 |   await page.fill('input[name="email"]', 'sqli@test.local');
+      67 |   await page.fill('input[name="password"]', 'Password123!');
+      68 |   await page.fill('input[name="retype"]', 'Password123!');
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:65:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-bee60-name-is-rejected-gracefully-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[7/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:73:5 › TC32 - Long string in input fields does not crash the server
+[1A[2K[8/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:83:5 › TC33 - CSRF token is present on repo creation form
+[1A[2K[9/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:91:5 › TC34 - Content-Type header is set on API responses
+[1A[2K[10/8] (retries) [chromium] › tests/mutation/input-validation.mutant.spec.ts:91:5 › TC34 - Content-Type header is set on API responses (retry #1)
+[1A[2K  3) [chromium] › tests/mutation/input-validation.mutant.spec.ts:91:5 › TC34 - Content-Type header is set on API responses 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected substring: [32m"text/html"[39m
+    Received string:    [31m"application/json;charset=utf-8"[39m
+
+       95 |   const ct = response!.headers()['content-type'] ?? '';
+       96 |   // MUTATION-2: [String change] — original: expect(ct).toContain('application/json');
+    >  97 |   expect(ct).toContain('text/html');
+          |              ^
+       98 | });
+       99 |
+      100 | test('TC47 - Repository name with path-traversal characters is rejected by API', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:97:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected substring: [32m"text/html"[39m
+    Received string:    [31m"application/json;charset=utf-8"[39m
+
+       95 |   const ct = response!.headers()['content-type'] ?? '';
+       96 |   // MUTATION-2: [String change] — original: expect(ct).toContain('application/json');
+    >  97 |   expect(ct).toContain('text/html');
+          |              ^
+       98 | });
+       99 |
+      100 | test('TC47 - Repository name with path-traversal characters is rejected by API', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:97:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-df244-der-is-set-on-API-responses-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[11/8] [chromium] › tests/mutation/input-validation.mutant.spec.ts:100:5 › TC47 - Repository name with path-traversal characters is rejected by API
+[1A[2K[12/8] (retries) [chromium] › tests/mutation/input-validation.mutant.spec.ts:100:5 › TC47 - Repository name with path-traversal characters is rejected by API (retry #1)
+[1A[2K  4) [chromium] › tests/mutation/input-validation.mutant.spec.ts:100:5 › TC47 - Repository name with path-traversal characters is rejected by API 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected value: [32m422[39m
+    Received array: [31m[200, 201][39m
+
+      107 |   expect(status).not.toBe(500);
+      108 |   // MUTATION-1: [Status code array change] — original: expect([400, 422]).toContain(status);
+    > 109 |   expect([200, 201]).toContain(status);
+          |                      ^
+      110 | });
+      111 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:109:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected value: [32m422[39m
+    Received array: [31m[200, 201][39m
+
+      107 |   expect(status).not.toBe(500);
+      108 |   // MUTATION-1: [Status code array change] — original: expect([400, 422]).toContain(status);
+    > 109 |   expect([200, 201]).toContain(status);
+          |                      ^
+      110 | });
+      111 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/input-validation.mutant.spec.ts:109:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-input-valid-c5bd6-aracters-is-rejected-by-API-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  4 failed
+    [chromium] › tests/mutation/input-validation.mutant.spec.ts:52:5 › TC30 - SQL injection in login field does not return 500 
+    [chromium] › tests/mutation/input-validation.mutant.spec.ts:62:5 › TC31 - SQL injection in registration username is rejected gracefully 
+    [chromium] › tests/mutation/input-validation.mutant.spec.ts:91:5 › TC34 - Content-Type header is set on API responses 
+    [chromium] › tests/mutation/input-validation.mutant.spec.ts:100:5 › TC47 - Repository name with path-traversal characters is rejected by API 
+  4 passed (2.4m)

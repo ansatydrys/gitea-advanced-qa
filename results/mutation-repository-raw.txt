@@ -1,0 +1,307 @@
+
+Running 8 tests using 1 worker
+
+[1A[2K[1/8] [chromium] › tests/mutation/repository.mutant.spec.ts:12:5 › TC11 - Create a public repository successfully
+[1A[2K[2/8] [chromium] › tests/mutation/repository.mutant.spec.ts:21:5 › TC12 - Create a private repository successfully
+[1A[2K[3/8] [chromium] › tests/mutation/repository.mutant.spec.ts:30:5 › TC13 - Public repository is accessible without login
+[1A[2K[4/8] (retries) [chromium] › tests/mutation/repository.mutant.spec.ts:30:5 › TC13 - Public repository is accessible without login (retry #1)
+[1A[2K  1) [chromium] › tests/mutation/repository.mutant.spec.ts:30:5 › TC13 - Public repository is accessible without login 
+
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Expected pattern: [32m/\/user\/login/[39m
+    Received string:  [31m"http://localhost:8080/ansat/open-repo-1776960964426"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toHaveURL" with timeout 5000ms[22m
+    [2m    9 × unexpected value "http://localhost:8080/ansat/open-repo-1776960964426"[22m
+
+
+      38 |   await page.goto(`/${ADMIN_USER}/${name}`);
+      39 |   // MUTATION-4: [Logical negation] — original: await expect(page).not.toHaveURL(/\/user\/login/);
+    > 40 |   await expect(page).toHaveURL(/\/user\/login/);
+         |                      ^
+      41 |   await expect(page.locator('h1, .repository-title')).toContainText(name);
+      42 | });
+      43 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:40:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Expected pattern: [32m/\/user\/login/[39m
+    Received string:  [31m"http://localhost:8080/ansat/open-repo-1776960971284"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toHaveURL" with timeout 5000ms[22m
+    [2m    9 × unexpected value "http://localhost:8080/ansat/open-repo-1776960971284"[22m
+
+
+      38 |   await page.goto(`/${ADMIN_USER}/${name}`);
+      39 |   // MUTATION-4: [Logical negation] — original: await expect(page).not.toHaveURL(/\/user\/login/);
+    > 40 |   await expect(page).toHaveURL(/\/user\/login/);
+         |                      ^
+      41 |   await expect(page.locator('h1, .repository-title')).toContainText(name);
+      42 | });
+      43 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:40:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-29353-is-accessible-without-login-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[5/8] [chromium] › tests/mutation/repository.mutant.spec.ts:44:5 › TC14 - Private repository is NOT accessible without login
+[1A[2K[6/8] (retries) [chromium] › tests/mutation/repository.mutant.spec.ts:44:5 › TC14 - Private repository is NOT accessible without login (retry #1)
+[1A[2K  2) [chromium] › tests/mutation/repository.mutant.spec.ts:44:5 › TC14 - Private repository is NOT accessible without login 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      58 |     bodyText.includes('Forbidden') ||
+      59 |     await page.locator('.not-found').isVisible({ timeout: 3000 }).catch(() => false);
+    > 60 |   expect(isBlocked).toBeTruthy();
+         |                     ^
+      61 | });
+      62 |
+      63 | test('TC15 - API GET /repos/{owner}/{repo} returns 200 for public repo', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:60:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      58 |     bodyText.includes('Forbidden') ||
+      59 |     await page.locator('.not-found').isVisible({ timeout: 3000 }).catch(() => false);
+    > 60 |   expect(isBlocked).toBeTruthy();
+         |                     ^
+      61 | });
+      62 |
+      63 | test('TC15 - API GET /repos/{owner}/{repo} returns 200 for public repo', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:60:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-52fec-OT-accessible-without-login-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[7/8] [chromium] › tests/mutation/repository.mutant.spec.ts:63:5 › TC15 - API GET /repos/{owner}/{repo} returns 200 for public repo
+[1A[2K[8/8] (retries) [chromium] › tests/mutation/repository.mutant.spec.ts:63:5 › TC15 - API GET /repos/{owner}/{repo} returns 200 for public repo (retry #1)
+[1A[2K  3) [chromium] › tests/mutation/repository.mutant.spec.ts:63:5 › TC15 - API GET /repos/{owner}/{repo} returns 200 for public repo 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m201[39m
+    Received: [31m200[39m
+
+      69 |   const { status, data } = await apiRequest(page, 'GET', `/repos/${ADMIN_USER}/${name}`);
+      70 |   // MUTATION-1: [Status code] — original: expect(status).toBe(200);
+    > 71 |   expect(status).toBe(201);
+         |                  ^
+      72 |   expect(data.name).toBe(name);
+      73 | });
+      74 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:71:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m201[39m
+    Received: [31m200[39m
+
+      69 |   const { status, data } = await apiRequest(page, 'GET', `/repos/${ADMIN_USER}/${name}`);
+      70 |   // MUTATION-1: [Status code] — original: expect(status).toBe(200);
+    > 71 |   expect(status).toBe(201);
+         |                  ^
+      72 |   expect(data.name).toBe(name);
+      73 | });
+      74 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:71:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-ad385-returns-200-for-public-repo-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[9/8] [chromium] › tests/mutation/repository.mutant.spec.ts:75:5 › TC16 - API GET /repos/{owner}/{repo} returns 404 for nonexistent repo
+[1A[2K[10/8] [chromium] › tests/mutation/repository.mutant.spec.ts:81:5 › TC17 - Repo deletion via API removes it from listing
+[1A[2K[11/8] (retries) [chromium] › tests/mutation/repository.mutant.spec.ts:81:5 › TC17 - Repo deletion via API removes it from listing (retry #1)
+[1A[2K  4) [chromium] › tests/mutation/repository.mutant.spec.ts:81:5 › TC17 - Repo deletion via API removes it from listing 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m204[39m
+    Received: [31m404[39m
+
+      87 |   // MUTATION-5: [URL/endpoint change] — original: await apiRequest(page, 'DELETE', `/repos/${ADMIN_USER}/${name}`);
+      88 |   const del = await apiRequest(page, 'DELETE', `/repositories/${ADMIN_USER}/${name}`);
+    > 89 |   expect(del.status).toBe(204);
+         |                      ^
+      90 |   const check = await apiRequest(page, 'GET', `/repos/${ADMIN_USER}/${name}`);
+      91 |   expect(check.status).toBe(404);
+      92 | });
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:89:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m204[39m
+    Received: [31m404[39m
+
+      87 |   // MUTATION-5: [URL/endpoint change] — original: await apiRequest(page, 'DELETE', `/repos/${ADMIN_USER}/${name}`);
+      88 |   const del = await apiRequest(page, 'DELETE', `/repositories/${ADMIN_USER}/${name}`);
+    > 89 |   expect(del.status).toBe(204);
+         |                      ^
+      90 |   const check = await apiRequest(page, 'GET', `/repos/${ADMIN_USER}/${name}`);
+      91 |   expect(check.status).toBe(404);
+      92 | });
+        at /Users/topg/Developer/Advanced QA/tests/mutation/repository.mutant.spec.ts:89:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-repository.-db3a0-API-removes-it-from-listing-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[12/8] [chromium] › tests/mutation/repository.mutant.spec.ts:94:5 › TC48 - Authenticated non-owner cannot access private repo via API
+[1A[2K  4 failed
+    [chromium] › tests/mutation/repository.mutant.spec.ts:30:5 › TC13 - Public repository is accessible without login 
+    [chromium] › tests/mutation/repository.mutant.spec.ts:44:5 › TC14 - Private repository is NOT accessible without login 
+    [chromium] › tests/mutation/repository.mutant.spec.ts:63:5 › TC15 - API GET /repos/{owner}/{repo} returns 200 for public repo 
+    [chromium] › tests/mutation/repository.mutant.spec.ts:81:5 › TC17 - Repo deletion via API removes it from listing 
+  4 passed (25.3s)

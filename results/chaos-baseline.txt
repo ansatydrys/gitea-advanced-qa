@@ -1,0 +1,15 @@
+
+Running 11 tests using 1 worker
+
+[1A[2K[1/11] [chromium] › tests/auth.spec.ts:13:5 › TC01 - Valid admin login redirects to dashboard
+[1A[2K[2/11] [chromium] › tests/auth.spec.ts:20:5 › TC02 - Logout clears session and redirects to login or home
+[1A[2K[3/11] [chromium] › tests/auth.spec.ts:28:5 › TC03 - Wrong password shows error message
+[1A[2K[4/11] [chromium] › tests/auth.spec.ts:36:5 › TC04 - Empty username field prevents login
+[1A[2K[5/11] [chromium] › tests/auth.spec.ts:43:5 › TC05 - SQL injection in username field does not crash app
+[1A[2K[6/11] [chromium] › tests/auth.spec.ts:52:5 › TC06 - Registration with mismatched passwords shows error
+[1A[2K[7/11] [chromium] › tests/auth.spec.ts:63:5 › TC07 - Registration with existing username shows error
+[1A[2K[8/11] [chromium] › tests/auth.spec.ts:74:5 › TC08 - Unauthenticated access to /issues redirects to login
+[1A[2K[9/11] [chromium] › tests/auth.spec.ts:79:5 › TC09 - Login page has CSRF token in form
+[1A[2K[10/11] [chromium] › tests/auth.spec.ts:85:5 › TC10 - Direct access to admin route without auth redirects to login
+[1A[2K[11/11] [chromium] › tests/auth.spec.ts:92:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401
+[1A[2K  11 passed (5.0s)

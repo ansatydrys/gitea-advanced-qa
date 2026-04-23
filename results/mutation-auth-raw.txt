@@ -1,0 +1,1199 @@
+
+Running 11 tests using 1 worker
+
+[1A[2K[1/11] [chromium] › tests/mutation/auth.mutant.spec.ts:10:5 › TC01 - Valid admin login redirects to dashboard
+[1A[2K[2/11] [chromium] › tests/mutation/auth.mutant.spec.ts:17:5 › TC02 - Logout clears session and redirects to login or home
+[1A[2K[3/11] [chromium] › tests/mutation/auth.mutant.spec.ts:25:5 › TC03 - Wrong password shows error message
+[1A[2K[4/11] [chromium] › tests/mutation/auth.mutant.spec.ts:33:5 › TC04 - Empty username field prevents login
+[1A[2K[5/11] (retries) [chromium] › tests/mutation/auth.mutant.spec.ts:33:5 › TC04 - Empty username field prevents login (retry #1)
+[1A[2K  1) [chromium] › tests/mutation/auth.mutant.spec.ts:33:5 › TC04 - Empty username field prevents login 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('input[name="password"]')[22m
+
+
+      34 |   // MUTATION-5: [URL change] — original: await page.goto('/user/login');
+      35 |   await page.goto('/user/signin');
+    > 36 |   await page.fill('input[name="password"]', ADMIN_PASS);
+         |              ^
+      37 |   await page.click('button.ui.primary.button');
+      38 |   await expect(page).toHaveURL(/\/user\/login/);
+      39 | });
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('input[name="password"]')[22m
+
+
+      34 |   // MUTATION-5: [URL change] — original: await page.goto('/user/login');
+      35 |   await page.goto('/user/signin');
+    > 36 |   await page.fill('input[name="password"]', ADMIN_PASS);
+         |              ^
+      37 |   await page.click('button.ui.primary.button');
+      38 |   await expect(page).toHaveURL(/\/user\/login/);
+      39 | });
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-fce0f-ername-field-prevents-login-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[6/11] [chromium] › tests/mutation/auth.mutant.spec.ts:41:5 › TC05 - SQL injection in username field does not crash app
+[1A[2K[7/11] (retries) [chromium] › tests/mutation/auth.mutant.spec.ts:41:5 › TC05 - SQL injection in username field does not crash app (retry #1)
+[1A[2K  2) [chromium] › tests/mutation/auth.mutant.spec.ts:41:5 › TC05 - SQL injection in username field does not crash app 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('body')
+    Timeout: 5000ms
+    [32m- Expected substring  -   1[39m
+    [31m+ Received string     + 219[39m
+
+    [32m- 500[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Explore[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Help[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 					Register[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 				Sign In[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Username or password is incorrect.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Sign In[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Username or Email Address[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Password[39m
+    [31m+ 					Forgot password?[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Remember This Device[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 						Sign In[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 	Could not read your security key.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Your browser does not currently support WebAuthn.[39m
+    [31m+ 		An unknown error occurred. Please retry.[39m
+    [31m+ 		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[39m
+    [31m+ 		The server could not process your request.[39m
+    [31m+ 		The security key is not permitted for this request. Please make sure that the key is not already registered.[39m
+    [31m+ 		You must set a name for this key.[39m
+    [31m+ 		Timeout reached before your key could be read. Please reload this page and retry.[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ 			Sign in with a passkey[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Need an account?[39m
+    [31m+ 				Register now.[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Powered by Gitea[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Version:[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				1.25.5[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Page: 6ms[39m
+    [31m+ 			Template: 2ms[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			 English[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Bahasa Indonesia[39m
+    [31m+ 				Deutsch[39m
+    [31m+ 				English[39m
+    [31m+ 				Español[39m
+    [31m+ 				Français[39m
+    [31m+ 				Gaeilge[39m
+    [31m+ 				Italiano[39m
+    [31m+ 				Latviešu[39m
+    [31m+ 				Magyar nyelv[39m
+    [31m+ 				Nederlands[39m
+    [31m+ 				Polski[39m
+    [31m+ 				Português de Portugal[39m
+    [31m+ 				Português do Brasil[39m
+    [31m+ 				Suomi[39m
+    [31m+ 				Svenska[39m
+    [31m+ 				Türkçe[39m
+    [31m+ 				Čeština[39m
+    [31m+ 				Ελληνικά[39m
+    [31m+ 				Български[39m
+    [31m+ 				Русский[39m
+    [31m+ 				Українська[39m
+    [31m+ 				فارسی[39m
+    [31m+ 				മലയാളം[39m
+    [31m+ 				日本語[39m
+    [31m+ 				简体中文[39m
+    [31m+ 				繁體中文（台灣）[39m
+    [31m+ 				繁體中文（香港）[39m
+    [31m+ 				한국어[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 		Licenses[39m
+    [31m+ 		API[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('body')[22m
+    [2m    9 × locator resolved to <body hx-ext="morph" hx-swap="outerHTML" hx-push-url="false" hx-headers="{"x-csrf-token": "X0eOjZ2q2JKNFC0ByHzMY5WG-sM6MTc3Njk2MDc3MTUzNTYwOTA5MQ"}">…</body>[22m
+    [2m      - unexpected value "[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Explore[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			Help[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m					Register[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m				Sign In[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Username or password is incorrect.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Sign In[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				Username or Email Address[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Password[22m
+    [2m					Forgot password?[22m
+    [2m				[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Remember This Device[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m[22m
+    [2m[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m						Sign In[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	Could not read your security key.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Your browser does not currently support WebAuthn.[22m
+    [2m		An unknown error occurred. Please retry.[22m
+    [2m		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[22m
+    [2m		The server could not process your request.[22m
+    [2m		The security key is not permitted for this request. Please make sure that the key is not already registered.[22m
+    [2m		You must set a name for this key.[22m
+    [2m		Timeout reached before your key could be read. Please reload this page and retry.[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m			Sign in with a passkey[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				Need an account?[22m
+    [2m				Register now.[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Powered by Gitea[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Version:[22m
+    [2m			[22m
+    [2m				1.25.5[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Page: 6ms[22m
+    [2m			Template: 2ms[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			 English[22m
+    [2m			[22m
+    [2m				Bahasa Indonesia[22m
+    [2m				Deutsch[22m
+    [2m				English[22m
+    [2m				Español[22m
+    [2m				Français[22m
+    [2m				Gaeilge[22m
+    [2m				Italiano[22m
+    [2m				Latviešu[22m
+    [2m				Magyar nyelv[22m
+    [2m				Nederlands[22m
+    [2m				Polski[22m
+    [2m				Português de Portugal[22m
+    [2m				Português do Brasil[22m
+    [2m				Suomi[22m
+    [2m				Svenska[22m
+    [2m				Türkçe[22m
+    [2m				Čeština[22m
+    [2m				Ελληνικά[22m
+    [2m				Български[22m
+    [2m				Русский[22m
+    [2m				Українська[22m
+    [2m				فارسی[22m
+    [2m				മലയാളം[22m
+    [2m				日本語[22m
+    [2m				简体中文[22m
+    [2m				繁體中文（台灣）[22m
+    [2m				繁體中文（香港）[22m
+    [2m				한국어[22m
+    [2m				[22m
+    [2m		[22m
+    [2m		Licenses[22m
+    [2m		API[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m"[22m
+
+
+      44 |   await expect(page).toHaveURL(/\/user\/login/);
+      45 |   // MUTATION-4: [Logical negation] — original: await expect(page.locator('body')).not.toContainText('500');
+    > 46 |   await expect(page.locator('body')).toContainText('500');
+         |                                      ^
+      47 | });
+      48 |
+      49 | test('TC06 - Registration with mismatched passwords shows error', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:46:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('body')
+    Timeout: 5000ms
+    [32m- Expected substring  -   1[39m
+    [31m+ Received string     + 219[39m
+
+    [32m- 500[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Explore[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Help[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 					Register[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 				Sign In[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Username or password is incorrect.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Sign In[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Username or Email Address[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Password[39m
+    [31m+ 					Forgot password?[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ 					Remember This Device[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m					[49m[39m
+    [31m+ 						Sign In[39m
+    [31m+ [43m					[49m[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 	Could not read your security key.[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ 		Your browser does not currently support WebAuthn.[39m
+    [31m+ 		An unknown error occurred. Please retry.[39m
+    [31m+ 		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[39m
+    [31m+ 		The server could not process your request.[39m
+    [31m+ 		The security key is not permitted for this request. Please make sure that the key is not already registered.[39m
+    [31m+ 		You must set a name for this key.[39m
+    [31m+ 		Timeout reached before your key could be read. Please reload this page and retry.[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ 			Sign in with a passkey[39m
+    [31m+ [43m		[49m[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Need an account?[39m
+    [31m+ 				Register now.[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Powered by Gitea[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Version:[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				1.25.5[39m
+    [31m+ [43m			[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			Page: 3ms[39m
+    [31m+ 			Template: 1ms[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 			 English[39m
+    [31m+ [43m			[49m[39m
+    [31m+ 				Bahasa Indonesia[39m
+    [31m+ 				Deutsch[39m
+    [31m+ 				English[39m
+    [31m+ 				Español[39m
+    [31m+ 				Français[39m
+    [31m+ 				Gaeilge[39m
+    [31m+ 				Italiano[39m
+    [31m+ 				Latviešu[39m
+    [31m+ 				Magyar nyelv[39m
+    [31m+ 				Nederlands[39m
+    [31m+ 				Polski[39m
+    [31m+ 				Português de Portugal[39m
+    [31m+ 				Português do Brasil[39m
+    [31m+ 				Suomi[39m
+    [31m+ 				Svenska[39m
+    [31m+ 				Türkçe[39m
+    [31m+ 				Čeština[39m
+    [31m+ 				Ελληνικά[39m
+    [31m+ 				Български[39m
+    [31m+ 				Русский[39m
+    [31m+ 				Українська[39m
+    [31m+ 				فارسی[39m
+    [31m+ 				മലയാളം[39m
+    [31m+ 				日本語[39m
+    [31m+ 				简体中文[39m
+    [31m+ 				繁體中文（台灣）[39m
+    [31m+ 				繁體中文（香港）[39m
+    [31m+ 				한국어[39m
+    [31m+ [43m				[49m[39m
+    [31m+ [43m		[49m[39m
+    [31m+ 		Licenses[39m
+    [31m+ 		API[39m
+    [31m+ [43m		[49m[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+ [43m	[49m[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+    [31m+[39m
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('body')[22m
+    [2m    9 × locator resolved to <body hx-ext="morph" hx-swap="outerHTML" hx-push-url="false" hx-headers="{"x-csrf-token": "MpYodu6DPs_nPbddRANWSPzGP6w6MTc3Njk2MDc3NzgyMTAyMzgwMw"}">…</body>[22m
+    [2m      - unexpected value "[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Explore[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			Help[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m					Register[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m				Sign In[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m	[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Username or password is incorrect.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Sign In[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				Username or Email Address[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Password[22m
+    [2m					Forgot password?[22m
+    [2m				[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					Remember This Device[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m			[22m
+    [2m[22m
+    [2m			[22m
+    [2m[22m
+    [2m[22m
+    [2m			[22m
+    [2m				[22m
+    [2m					[22m
+    [2m						Sign In[22m
+    [2m					[22m
+    [2m				[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			[22m
+    [2m	Could not read your security key.[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		Your browser does not currently support WebAuthn.[22m
+    [2m		An unknown error occurred. Please retry.[22m
+    [2m		WebAuthn only supports secure connections. For testing over HTTP, you can use the origin "localhost" or "127.0.0.1".[22m
+    [2m		The server could not process your request.[22m
+    [2m		The security key is not permitted for this request. Please make sure that the key is not already registered.[22m
+    [2m		You must set a name for this key.[22m
+    [2m		Timeout reached before your key could be read. Please reload this page and retry.[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m			Sign in with a passkey[22m
+    [2m		[22m
+    [2m[22m
+    [2m		[22m
+    [2m			[22m
+    [2m				Need an account?[22m
+    [2m				Register now.[22m
+    [2m			[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			Powered by Gitea[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Version:[22m
+    [2m			[22m
+    [2m				1.25.5[22m
+    [2m			[22m
+    [2m		[22m
+    [2m		[22m
+    [2m			Page: 3ms[22m
+    [2m			Template: 1ms[22m
+    [2m		[22m
+    [2m	[22m
+    [2m	[22m
+    [2m		[22m
+    [2m			 English[22m
+    [2m			[22m
+    [2m				Bahasa Indonesia[22m
+    [2m				Deutsch[22m
+    [2m				English[22m
+    [2m				Español[22m
+    [2m				Français[22m
+    [2m				Gaeilge[22m
+    [2m				Italiano[22m
+    [2m				Latviešu[22m
+    [2m				Magyar nyelv[22m
+    [2m				Nederlands[22m
+    [2m				Polski[22m
+    [2m				Português de Portugal[22m
+    [2m				Português do Brasil[22m
+    [2m				Suomi[22m
+    [2m				Svenska[22m
+    [2m				Türkçe[22m
+    [2m				Čeština[22m
+    [2m				Ελληνικά[22m
+    [2m				Български[22m
+    [2m				Русский[22m
+    [2m				Українська[22m
+    [2m				فارسی[22m
+    [2m				മലയാളം[22m
+    [2m				日本語[22m
+    [2m				简体中文[22m
+    [2m				繁體中文（台灣）[22m
+    [2m				繁體中文（香港）[22m
+    [2m				한국어[22m
+    [2m				[22m
+    [2m		[22m
+    [2m		Licenses[22m
+    [2m		API[22m
+    [2m		[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m	[22m
+    [2m[22m
+    [2m[22m
+    [2m[22m
+    [2m"[22m
+
+
+      44 |   await expect(page).toHaveURL(/\/user\/login/);
+      45 |   // MUTATION-4: [Logical negation] — original: await expect(page.locator('body')).not.toContainText('500');
+    > 46 |   await expect(page.locator('body')).toContainText('500');
+         |                                      ^
+      47 | });
+      48 |
+      49 | test('TC06 - Registration with mismatched passwords shows error', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:46:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-fe083-me-field-does-not-crash-app-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[8/11] [chromium] › tests/mutation/auth.mutant.spec.ts:49:5 › TC06 - Registration with mismatched passwords shows error
+[1A[2K[9/11] [chromium] › tests/mutation/auth.mutant.spec.ts:60:5 › TC07 - Registration with existing username shows error
+[1A[2K[10/11] [chromium] › tests/mutation/auth.mutant.spec.ts:71:5 › TC08 - Unauthenticated access to /issues redirects to login
+[1A[2K[11/11] (retries) [chromium] › tests/mutation/auth.mutant.spec.ts:71:5 › TC08 - Unauthenticated access to /issues redirects to login (retry #1)
+[1A[2K  3) [chromium] › tests/mutation/auth.mutant.spec.ts:71:5 › TC08 - Unauthenticated access to /issues redirects to login 
+
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Expected pattern: [32m/\/user\/dashboard/[39m
+    Received string:  [31m"http://localhost:8080/user/login"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toHaveURL" with timeout 5000ms[22m
+    [2m    9 × unexpected value "http://localhost:8080/user/login"[22m
+
+
+      72 |   await page.goto('/issues');
+      73 |   // MUTATION-2: [String/regex change] — original: await expect(page).toHaveURL(/\/user\/login/);
+    > 74 |   await expect(page).toHaveURL(/\/user\/dashboard/);
+         |                      ^
+      75 | });
+      76 |
+      77 | test('TC09 - Login page has CSRF token in form', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:74:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Expected pattern: [32m/\/user\/dashboard/[39m
+    Received string:  [31m"http://localhost:8080/user/login"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toHaveURL" with timeout 5000ms[22m
+    [2m    9 × unexpected value "http://localhost:8080/user/login"[22m
+
+
+      72 |   await page.goto('/issues');
+      73 |   // MUTATION-2: [String/regex change] — original: await expect(page).toHaveURL(/\/user\/login/);
+    > 74 |   await expect(page).toHaveURL(/\/user\/dashboard/);
+         |                      ^
+      75 | });
+      76 |
+      77 | test('TC09 - Login page has CSRF token in form', async ({ page }) => {
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:74:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-d92a4-o-issues-redirects-to-login-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[12/11] [chromium] › tests/mutation/auth.mutant.spec.ts:77:5 › TC09 - Login page has CSRF token in form
+[1A[2K[13/11] [chromium] › tests/mutation/auth.mutant.spec.ts:83:5 › TC10 - Direct access to admin route without auth redirects to login
+[1A[2K[14/11] [chromium] › tests/mutation/auth.mutant.spec.ts:88:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401
+[1A[2K[15/11] (retries) [chromium] › tests/mutation/auth.mutant.spec.ts:88:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401 (retry #1)
+[1A[2K  4) [chromium] › tests/mutation/auth.mutant.spec.ts:88:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m201[39m
+    Received: [31m401[39m
+
+      91 |   });
+      92 |   // MUTATION-1: [Status code] — original: expect(response.status()).toBe(401);
+    > 93 |   expect(response.status()).toBe(201);
+         |                             ^
+      94 | });
+      95 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:93:29
+
+    Error Context: test-results/tests-mutation-auth.mutant-67117--on-api-v1-user-returns-401-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-67117--on-api-v1-user-returns-401-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-67117--on-api-v1-user-returns-401-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m201[39m
+    Received: [31m401[39m
+
+      91 |   });
+      92 |   // MUTATION-1: [Status code] — original: expect(response.status()).toBe(401);
+    > 93 |   expect(response.status()).toBe(201);
+         |                             ^
+      94 | });
+      95 |
+        at /Users/topg/Developer/Advanced QA/tests/mutation/auth.mutant.spec.ts:93:29
+
+    Error Context: test-results/tests-mutation-auth.mutant-67117--on-api-v1-user-returns-401-chromium-retry1/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-mutation-auth.mutant-67117--on-api-v1-user-returns-401-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-mutation-auth.mutant-67117--on-api-v1-user-returns-401-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  4 failed
+    [chromium] › tests/mutation/auth.mutant.spec.ts:33:5 › TC04 - Empty username field prevents login 
+    [chromium] › tests/mutation/auth.mutant.spec.ts:41:5 › TC05 - SQL injection in username field does not crash app 
+    [chromium] › tests/mutation/auth.mutant.spec.ts:71:5 › TC08 - Unauthenticated access to /issues redirects to login 
+    [chromium] › tests/mutation/auth.mutant.spec.ts:88:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401 
+  7 passed (2.6m)
+npm notice
+npm notice New minor version of npm available! 11.6.0 -> 11.13.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.13.0
+npm notice To update run: npm install -g npm@11.13.0
+npm notice

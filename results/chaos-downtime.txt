@@ -1,0 +1,413 @@
+
+Running 11 tests using 1 worker
+
+[1A[2K[1/11] [chromium] › tests/auth.spec.ts:13:5 › TC01 - Valid admin login redirects to dashboard
+[1A[2K  1) [chromium] › tests/auth.spec.ts:13:5 › TC01 - Valid admin login redirects to dashboard ────────
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/login
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/login", waiting until "load"[22m
+
+
+       at tests/helpers.ts:17
+
+      15 |
+      16 |   async login(username: string, password: string) {
+    > 17 |     await this.page.goto('/user/login');
+         |                     ^
+      18 |     await this.page.waitForLoadState('domcontentloaded');
+      19 |     // If Gitea redirected us away (already authenticated), we're done
+      20 |     if (!this.page.url().includes('/user/login')) return;
+        at AuthPage.login (/Users/topg/Developer/Advanced QA/tests/helpers.ts:17:21)
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:15:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC01---Valid-admin-login-redirects-to-dashboard-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC01---Valid-admin-login-redirects-to-dashboard-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC01---Valid-admin-login-redirects-to-dashboard-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC01---Valid-admin-login-redirects-to-dashboard-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC01---Valid-admin-login-redirects-to-dashboard-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/11] [chromium] › tests/auth.spec.ts:20:5 › TC02 - Logout clears session and redirects to login or home
+[1A[2K  2) [chromium] › tests/auth.spec.ts:20:5 › TC02 - Logout clears session and redirects to login or home 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/login
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/login", waiting until "load"[22m
+
+
+       at tests/helpers.ts:17
+
+      15 |
+      16 |   async login(username: string, password: string) {
+    > 17 |     await this.page.goto('/user/login');
+         |                     ^
+      18 |     await this.page.waitForLoadState('domcontentloaded');
+      19 |     // If Gitea redirected us away (already authenticated), we're done
+      20 |     if (!this.page.url().includes('/user/login')) return;
+        at AuthPage.login (/Users/topg/Developer/Advanced QA/tests/helpers.ts:17:21)
+        at loginAsAdmin (/Users/topg/Developer/Advanced QA/tests/helpers.ts:112:14)
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:21:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC02---Logout-c-30aee--redirects-to-login-or-home-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC02---Logout-c-30aee--redirects-to-login-or-home-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC02---Logout-c-30aee--redirects-to-login-or-home-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC02---Logout-c-30aee--redirects-to-login-or-home-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC02---Logout-c-30aee--redirects-to-login-or-home-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[3/11] [chromium] › tests/auth.spec.ts:28:5 › TC03 - Wrong password shows error message
+[1A[2K  3) [chromium] › tests/auth.spec.ts:28:5 › TC03 - Wrong password shows error message ──────────────
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/login
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/login", waiting until "load"[22m
+
+
+       at tests/helpers.ts:17
+
+      15 |
+      16 |   async login(username: string, password: string) {
+    > 17 |     await this.page.goto('/user/login');
+         |                     ^
+      18 |     await this.page.waitForLoadState('domcontentloaded');
+      19 |     // If Gitea redirected us away (already authenticated), we're done
+      20 |     if (!this.page.url().includes('/user/login')) return;
+        at AuthPage.login (/Users/topg/Developer/Advanced QA/tests/helpers.ts:17:21)
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:30:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC03---Wrong-password-shows-error-message-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC03---Wrong-password-shows-error-message-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC03---Wrong-password-shows-error-message-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC03---Wrong-password-shows-error-message-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC03---Wrong-password-shows-error-message-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[4/11] [chromium] › tests/auth.spec.ts:36:5 › TC04 - Empty username field prevents login
+[1A[2K  4) [chromium] › tests/auth.spec.ts:36:5 › TC04 - Empty username field prevents login ─────────────
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/login
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/login", waiting until "load"[22m
+
+
+      35 |
+      36 | test('TC04 - Empty username field prevents login', async ({ page }) => {
+    > 37 |   await page.goto('/user/login');
+         |              ^
+      38 |   await page.fill('input[name="password"]', ADMIN_PASS);
+      39 |   await page.click('button.ui.primary.button');
+      40 |   await expect(page).toHaveURL(/\/user\/login/);
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:37:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC04---Empty-username-field-prevents-login-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC04---Empty-username-field-prevents-login-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC04---Empty-username-field-prevents-login-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC04---Empty-username-field-prevents-login-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC04---Empty-username-field-prevents-login-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[5/11] [chromium] › tests/auth.spec.ts:43:5 › TC05 - SQL injection in username field does not crash app
+[1A[2K  5) [chromium] › tests/auth.spec.ts:43:5 › TC05 - SQL injection in username field does not crash app 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/login
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/login", waiting until "load"[22m
+
+
+       at tests/helpers.ts:17
+
+      15 |
+      16 |   async login(username: string, password: string) {
+    > 17 |     await this.page.goto('/user/login');
+         |                     ^
+      18 |     await this.page.waitForLoadState('domcontentloaded');
+      19 |     // If Gitea redirected us away (already authenticated), we're done
+      20 |     if (!this.page.url().includes('/user/login')) return;
+        at AuthPage.login (/Users/topg/Developer/Advanced QA/tests/helpers.ts:17:21)
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:45:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC05---SQL-inje-13602-me-field-does-not-crash-app-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC05---SQL-inje-13602-me-field-does-not-crash-app-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC05---SQL-inje-13602-me-field-does-not-crash-app-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC05---SQL-inje-13602-me-field-does-not-crash-app-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC05---SQL-inje-13602-me-field-does-not-crash-app-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[6/11] [chromium] › tests/auth.spec.ts:52:5 › TC06 - Registration with mismatched passwords shows error
+[1A[2K  6) [chromium] › tests/auth.spec.ts:52:5 › TC06 - Registration with mismatched passwords shows error 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/sign_up
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/sign_up", waiting until "load"[22m
+
+
+      52 | test('TC06 - Registration with mismatched passwords shows error', async ({ page }) => {
+      53 |   const name = uniqueName('testuser');
+    > 54 |   await page.goto('/user/sign_up');
+         |              ^
+      55 |   await page.fill('input[name="user_name"]', name);
+      56 |   await page.fill('input[name="email"]', `${name}@test.local`);
+      57 |   await page.fill('input[name="password"]', 'Password123!');
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:54:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC06---Registra-23110-tched-passwords-shows-error-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC06---Registra-23110-tched-passwords-shows-error-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC06---Registra-23110-tched-passwords-shows-error-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC06---Registra-23110-tched-passwords-shows-error-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC06---Registra-23110-tched-passwords-shows-error-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[7/11] [chromium] › tests/auth.spec.ts:63:5 › TC07 - Registration with existing username shows error
+[1A[2K  7) [chromium] › tests/auth.spec.ts:63:5 › TC07 - Registration with existing username shows error ─
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/sign_up
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/sign_up", waiting until "load"[22m
+
+
+      62 |
+      63 | test('TC07 - Registration with existing username shows error', async ({ page }) => {
+    > 64 |   await page.goto('/user/sign_up');
+         |              ^
+      65 |   await page.fill('input[name="user_name"]', ADMIN_USER);
+      66 |   await page.fill('input[name="email"]', 'taken@test.local');
+      67 |   await page.fill('input[name="password"]', 'Password123!');
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:64:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC07---Registra-955e7-isting-username-shows-error-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC07---Registra-955e7-isting-username-shows-error-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC07---Registra-955e7-isting-username-shows-error-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC07---Registra-955e7-isting-username-shows-error-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC07---Registra-955e7-isting-username-shows-error-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[8/11] [chromium] › tests/auth.spec.ts:74:5 › TC08 - Unauthenticated access to /issues redirects to login
+[1A[2K  8) [chromium] › tests/auth.spec.ts:74:5 › TC08 - Unauthenticated access to /issues redirects to login 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/issues
+    Call log:
+    [2m  - navigating to "http://localhost:8080/issues", waiting until "load"[22m
+
+
+      73 |
+      74 | test('TC08 - Unauthenticated access to /issues redirects to login', async ({ page }) => {
+    > 75 |   await page.goto('/issues');
+         |              ^
+      76 |   await expect(page).toHaveURL(/\/user\/login/);
+      77 | });
+      78 |
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:75:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC08---Unauthen-ae148-o-issues-redirects-to-login-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC08---Unauthen-ae148-o-issues-redirects-to-login-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC08---Unauthen-ae148-o-issues-redirects-to-login-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC08---Unauthen-ae148-o-issues-redirects-to-login-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC08---Unauthen-ae148-o-issues-redirects-to-login-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[9/11] [chromium] › tests/auth.spec.ts:79:5 › TC09 - Login page has CSRF token in form
+[1A[2K  9) [chromium] › tests/auth.spec.ts:79:5 › TC09 - Login page has CSRF token in form ───────────────
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/user/login
+    Call log:
+    [2m  - navigating to "http://localhost:8080/user/login", waiting until "load"[22m
+
+
+      78 |
+      79 | test('TC09 - Login page has CSRF token in form', async ({ page }) => {
+    > 80 |   await page.goto('/user/login');
+         |              ^
+      81 |   const csrf = await page.locator('input[name="_csrf"]').getAttribute('value');
+      82 |   expect(csrf).toBeTruthy();
+      83 | });
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:80:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC09---Login-page-has-CSRF-token-in-form-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC09---Login-page-has-CSRF-token-in-form-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC09---Login-page-has-CSRF-token-in-form-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC09---Login-page-has-CSRF-token-in-form-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC09---Login-page-has-CSRF-token-in-form-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[10/11] [chromium] › tests/auth.spec.ts:85:5 › TC10 - Direct access to admin route without auth redirects to login
+[1A[2K  10) [chromium] › tests/auth.spec.ts:85:5 › TC10 - Direct access to admin route without auth redirects to login 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/-/admin/users
+    Call log:
+    [2m  - navigating to "http://localhost:8080/-/admin/users", waiting until "load"[22m
+
+
+      84 |
+      85 | test('TC10 - Direct access to admin route without auth redirects to login', async ({ page }) => {
+    > 86 |   await page.goto('/-/admin/users');
+         |              ^
+      87 |   await expect(page).toHaveURL(/\/user\/login/);
+      88 | });
+      89 |
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:86:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tests-auth-TC10---Direct-a-67136-out-auth-redirects-to-login-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/tests-auth-TC10---Direct-a-67136-out-auth-redirects-to-login-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tests-auth-TC10---Direct-a-67136-out-auth-redirects-to-login-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC10---Direct-a-67136-out-auth-redirects-to-login-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC10---Direct-a-67136-out-auth-redirects-to-login-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[11/11] [chromium] › tests/auth.spec.ts:92:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401
+[1A[2K  11) [chromium] › tests/auth.spec.ts:92:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401 
+
+    Error: apiRequestContext.get: connect ECONNREFUSED ::1:8080
+    Call log:
+    [2m  - → GET http://localhost:8080/api/v1/user[22m
+    [2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.15 Safari/537.36[22m
+    [2m    - accept: */*[22m
+    [2m    - accept-encoding: gzip,deflate,br[22m
+    [2m    - Authorization: Bearer totally-invalid-token-abc123xyz987[22m
+
+        at apiRequestContext.get: connect ECONNREFUSED ::1:8080
+        at /Users/topg/Developer/Advanced QA/tests/auth.spec.ts:95:34
+
+    Error Context: test-results/tests-auth-TC46---Invalid--d270f--on-api-v1-user-returns-401-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tests-auth-TC46---Invalid--d270f--on-api-v1-user-returns-401-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tests-auth-TC46---Invalid--d270f--on-api-v1-user-returns-401-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  11 failed
+    [chromium] › tests/auth.spec.ts:13:5 › TC01 - Valid admin login redirects to dashboard ─────────
+    [chromium] › tests/auth.spec.ts:20:5 › TC02 - Logout clears session and redirects to login or home 
+    [chromium] › tests/auth.spec.ts:28:5 › TC03 - Wrong password shows error message ───────────────
+    [chromium] › tests/auth.spec.ts:36:5 › TC04 - Empty username field prevents login ──────────────
+    [chromium] › tests/auth.spec.ts:43:5 › TC05 - SQL injection in username field does not crash app 
+    [chromium] › tests/auth.spec.ts:52:5 › TC06 - Registration with mismatched passwords shows error 
+    [chromium] › tests/auth.spec.ts:63:5 › TC07 - Registration with existing username shows error ──
+    [chromium] › tests/auth.spec.ts:74:5 › TC08 - Unauthenticated access to /issues redirects to login 
+    [chromium] › tests/auth.spec.ts:79:5 › TC09 - Login page has CSRF token in form ────────────────
+    [chromium] › tests/auth.spec.ts:85:5 › TC10 - Direct access to admin route without auth redirects to login 
+    [chromium] › tests/auth.spec.ts:92:5 › TC46 - Invalid Bearer token on /api/v1/user returns 401 ─
